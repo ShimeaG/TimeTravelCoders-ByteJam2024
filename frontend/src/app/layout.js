@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import Timeline from "./components/timeline.js"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -18,12 +19,35 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+    const events = [
+    { year: 2021, title: 'Event 1', link: '/step-1', color: 'blue' },
+    { year: 2022, title: 'Event 2', link: '/step-2', color: 'green' },
+    { year: 2023, title: 'Event 3', link: '/step-3', color: 'red' },
+    { year: 2025, title: 'Event 4', link: '/step-4', color: 'yellow' },
+    { year: 2024, title: 'Event 4', link: '/step-4', color: 'yellow' },
+        { year: 1992, title: 'Event 5', link: '/step-4', color: 'yellow' },
+        { year: 2042, title: 'Event 1', link: '/step-1', color: 'blue' },
+    { year: 2043, title: 'Event 2', link: '/step-2', color: 'green' },
+    { year: 2044, title: 'Event 3', link: '/step-3', color: 'red' },
+    { year: 2045, title: 'Event 4', link: '/step-4', color: 'yellow' },
+    { year: 2046, title: 'Event 4', link: '/step-4', color: 'yellow' },
+        { year: 147, title: 'Event 5', link: '/step-4', color: 'yellow' },
+
+  ];
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black bg-no-repeat bg-cover background-blur-lg`}
       >
-        {children}
+          <div className={'backdrop-blur-sm min-h-screen w-full'}>
+              {children}
+              <div className={'w-full flex items-center justify-center'}>
+                  <div>
+
+                  </div>
+                <Timeline events={events} />
+              </div>
+          </div>
       </body>
     </html>
   );
