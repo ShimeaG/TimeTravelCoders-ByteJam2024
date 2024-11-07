@@ -1,9 +1,9 @@
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
-from project.historyFacts.models import Years
-from project.historyFacts.models import Events
+from backend.historyFacts.models import Years
+from backend.historyFacts.models import Events
 
-from project.historyFacts.serializers import EventsSerializer, YearsSerializer
+from backend.historyFacts.serializers import EventsSerializer, YearsSerializer
 
 
 class YearsViewSet(viewsets.ModelViewSet):

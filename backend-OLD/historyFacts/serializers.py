@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
-from project.historyFacts.models import Years
-from project.historyFacts.models import Events
+from backend.historyFacts.models import Years
+from backend.historyFacts.models import Events
 
 
 class YearsSerializer(serializers.ModelSerializer):
