@@ -31,3 +31,38 @@ body {
       scrollbar-width: none; /* Firefox */
     }
 }
+
+/* Initial slow, large rumbles */
+@keyframes slowRumble {
+  0%, 100% { transform: translate(0, 0); }
+  50%, 75% { transform: translate(-2px, -2px); }
+  25%, 100% { transform: translate(3px, 3px); }
+}
+
+/* Fast, intense rumbles */
+@keyframes fastRumble {
+  0%, 100% { transform: translate(0, 0); }
+  10%, 30%, 50%, 70%, 90% { transform: translate(-5px, -5px); }
+  20%, 40%, 60%, 80% { transform: translate(5px, 5px); }
+}
+
+/* Final calming rumbles */
+@keyframes calmingRumble {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-3px, -3px); }
+  75% { transform: translate(3px, 3px); }
+}
+
+.rumble {
+  animation:
+    slowRumble 0.5s ease-in infinite 0s,
+    fastRumble 0.05s ease-in-out infinite 2s,
+    calmingRumble 0.4s ease-out infinite 4s;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* Zoom In effect for the text */
+.scale-150 {
+  transform: scale(1.5);
+}
