@@ -8,6 +8,7 @@ const Timeline = ({ events }) => {
   const { year } = router.query || {};
   const [rumble, setRumble] = useState(false);
   const [fadeOutWelcome, setFadeOutWelcome] = useState(false);
+  const [zoomEffect, setZoomEffect] = useState(false); // State for zoom effect
 
   if (events) {
     events.sort((a, b) => a.year - b.year);
@@ -17,9 +18,13 @@ const Timeline = ({ events }) => {
     router.push(`?year=${eventYear}`);
     setRumble(true);
     setFadeOutWelcome(true); // Trigger fade-out for "welcome" element
+    setZoomEffect(true); // Trigger zoom effect
 
     // Stop the rumble effect after 3 seconds
     setTimeout(() => setRumble(false), 3000);
+
+    // Stop the zoom effect after 3 seconds
+    setTimeout(() => setZoomEffect(false), 3000);
   };
 
   // Apply rumble and overflow-hidden to the body
@@ -49,6 +54,14 @@ const Timeline = ({ events }) => {
         className={`transition-opacity duration-1000 ${fadeOutWelcome ? 'opacity-0' : 'opacity-100'}`}
       >
         {/* Your welcome content goes here */}
+      </div>
+
+      {/* Zoom Section */}
+      <div
+        id="zoom"
+        className={`transition-transform duration-1000 ${zoomEffect ? 'scale-125' : ''}`}
+      >
+        {/* Content that should zoom in goes here */}
       </div>
 
       {/* Timeline Navigation */}
