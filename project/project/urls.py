@@ -1,6 +1,6 @@
 
 """
-URL configuration for project123 project123.
+URL configuration for project project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -18,7 +18,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from routers import router
+
 urlpatterns = [
+    path('api/', include((router.urls, 'core_api'), namespace='core_api')),
     path("historyFacts/", include("historyFacts.urls")),
     path("admin/", admin.site.urls),
 ]
