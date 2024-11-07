@@ -24,20 +24,29 @@ Kyle (Marcie) Benacka
 ---
 
 ## Tools Used
-- Django
+- SQL Alchemy
+- SQL Lite
 - React
 - PyCharm
 - Canva
 - Next.js
 - Markdown
 - GitHub
+- Flask
+- Teams
 
-## Why We Used Django
-We used Django as a rest API to manage our database
+## Why We Used SQL Alchemy and SQL Lite
+We used SQL Alchemy to connect to our database, and SQL Lite 
+is where we made our database
+
 
 ## Why We Used Next.js
 We're using Next.js to do the frontend development, and are making HTTP
 calls to the Django backend
+
+## Why We Used Flask
+Flask is what we used for our API routing
+
 ---
 
 ## Tasks
@@ -45,4 +54,6 @@ calls to the Django backend
 - [x] Get Historical Facts
 - [x] Database Wireframe
 - [x] Project Name
-
+- [x] Brainstorming Website Layout Ideas
+- [x] Backend Database
+- [x] NextJs Frontend
