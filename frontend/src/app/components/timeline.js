@@ -1,14 +1,37 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
 
 const Timeline = ({ events }) => {
   const router = useRouter();
   const { year } = router.query || {};
+  const [rumble, setRumble] = useState(false);
+  const [fadeOutWelcome, setFadeOutWelcome] = useState(false);
 
   if (events) {
     events.sort((a, b) => a.year - b.year);
   }
+
+  const handleYearClick = (eventYear) => {
+    router.push(`?year=${eventYear}`);
+    setRumble(true);
+    setFadeOutWelcome(true); // Trigger fade-out for "welcome" element
+
+    // Stop the rumble effect after 3 seconds
+    setTimeout(() => setRumble(false), 3000);
+  };
+
+  // Apply rumble and overflow-hidden to the body
+  useEffect(() => {
+    if (rumble) {
+      document.body.classList.add('rumble');
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.classList.remove('rumble');
+      document.body.style.overflow = ''; // Reset overflow to default
+    }
+  }, [rumble]);
 
   return (
     <>
@@ -19,6 +42,14 @@ const Timeline = ({ events }) => {
         }`}
         style={{ backgroundImage: "url('/api/placeholder/1920/1080')" }}
       />
+
+      {/* Welcome Section */}
+      <div
+        id="welcome"
+        className={`transition-opacity duration-1000 ${fadeOutWelcome ? 'opacity-0' : 'opacity-100'}`}
+      >
+        {/* Your welcome content goes here */}
+      </div>
 
       {/* Timeline Navigation */}
       <nav className="shadow-inner shadow-gray-600 fixed bottom-2 left-1/2 transform -translate-x-1/2 w-full max-w-screen-lg mx-auto bg-glass backdrop-blur-md border-b border-gray-200 rounded-full py-12 px-8 overflow-hidden z-10">
@@ -43,16 +74,17 @@ const Timeline = ({ events }) => {
                   }`}
                 />
 
-                {/* Year Label */}
-                <div
+                {/* Year Label with Clickable Button */}
+                <button
+                  onClick={() => handleYearClick(event.year)}
                   className={`text-center absolute ${
                     index % 2 === 0 
                       ? 'top-6' 
                       : 'bottom-6'
-                  }`}
+                  } text-white`}
                 >
-                  <p className="text-white">{event.year}</p>
-                </div>
+                  {event.year}
+                </button>
               </div>
             ))}
           </div>

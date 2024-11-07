@@ -43,7 +43,7 @@ export default function WelcomeMessage() {
       </h1>
 
       {/* Arrow and Text Section */}
-      <div className={`bottom-32 position absolute flex flex-col items-center transition-opacity duration-1000 ${showArrow ? "opacity-100" : "opacity-0"}`}>
+      <div id="welcome" className={`bottom-32 position absolute flex flex-col items-center transition-opacity duration-1000 ${showArrow ? "opacity-100" : "opacity-0"} `}>
         <div className="flex flex-col items-center text-white">
           <p className="mb-4 text-2xl [text-shadow:_2px_2px_2px_rgb(0_0_0_/_60%)]">Click here to explore history</p>
           <div className="animate-bounce">
