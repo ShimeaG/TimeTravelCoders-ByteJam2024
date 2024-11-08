@@ -42,7 +42,7 @@ is where we made our database
 
 ## Why We Used Next.js
 We're using Next.js to do the frontend development, and are making HTTP
-calls to the Django backend
+calls to the SQL Lite, Alchemy, and Python
 
 ## Why We Used Flask
 Flask is what we used for our API routing
@@ -51,9 +51,12 @@ Flask is what we used for our API routing
 
 ## Tasks
 
-- [x] Get Historical Facts
+- [x] Get Historical Facts 
 - [x] Database Wireframe
 - [x] Project Name
 - [x] Brainstorming Website Layout Ideas
 - [x] Backend Database
 - [x] NextJs Frontend
+- [x] Finished API Routing
+- [x] Finished Rest API
+- [x] Finalized historical events used
