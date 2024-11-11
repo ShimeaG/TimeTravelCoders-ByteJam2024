@@ -28,7 +28,7 @@ export default function Event() {
 
   return (
     <>
-      <div className={"flex items-center justify-center h-screen w-full flex-col flex-wrap"}>
+      <div className={"z-10 flex items-center justify-center min-h-screen py-32 w-full flex-col"}>
         {/* Map over the events array to render each Card with dynamic data */}
         {events.length > 0 ? (
           events.map((event) => (
