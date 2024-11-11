@@ -29,7 +29,7 @@ export default function WelcomeMessage() {
               : "opacity-0 -translate-y-6"
           } bg-gradient-to-r from-transparent via-bgBlurColor to-transparent bg-clip-text text-shadow-lg`}
         >
-          Welcome to the past,
+          Take a look at the world,
         </span>
         <span
           className={`[text-shadow:_2px_2px_2px_rgb(0_0_0_/_60%)] transform transition-all duration-[1s] ${
@@ -38,14 +38,14 @@ export default function WelcomeMessage() {
               : "opacity-0 -translate-y-6"
           } bg-gradient-to-r from-transparent via-bgBlurColor to-transparent bg-clip-text text-shadow-lg`}
         >
-          <span> your new future.</span>
+          <span> with a historical lens.</span>
         </span>
       </h1>
 
       {/* Arrow and Text Section */}
       <div id="welcome" className={`bottom-32 position absolute flex flex-col items-center transition-opacity duration-1000 ${showArrow ? "opacity-100" : "opacity-0"} `}>
         <div className="flex flex-col items-center text-white">
-          <p className="mb-4 text-2xl [text-shadow:_2px_2px_2px_rgb(0_0_0_/_60%)]">Click here to explore history</p>
+          <p className="mb-4 text-2xl [text-shadow:_2px_2px_2px_rgb(0_0_0_/_60%)]">Click here to explore</p>
           <div className="animate-bounce">
             <svg
               xmlns="http://www.w3.org/2000/svg"
