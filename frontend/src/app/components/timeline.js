@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
@@ -8,39 +9,29 @@ const Timeline = () => {
   const { year } = router.query || {};
   const [rumble, setRumble] = useState(false);
   const [fadeOutWelcome, setFadeOutWelcome] = useState(false);
-  const [events, setEvents] = useState([]); // State to store events data
+  const [years, setYears] = useState([]); // Renamed to years
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch('http://127.0.0.1:5000/years');
       const result = await response.json();
-      setEvents(result); // Set the fetched data to the events state
+      setYears(result); // Set the fetched data to the years state
     };
 
     fetchData();
   }, []);
 
-  if (events) {
-    events.sort((a, b) => a.year - b.year); // Sort events by year
+  if (years) {
+    years.sort((a, b) => a.event_year - b.event_year); // Sort by event_year
   }
 
-  const handleYearClick = (eventYear) => {
-    router.push(`?year=${eventYear}`);
-    setRumble(true);
-    setFadeOutWelcome(true); // Trigger fade-out for "welcome" element
-
-    // Stop the rumble effect after 3 seconds
-    setTimeout(() => setRumble(false), 3000);
-  };
-
-  // Apply rumble and overflow-hidden to the body
   useEffect(() => {
     if (rumble) {
       document.body.classList.add('rumble');
       document.body.style.overflow = 'hidden';
     } else {
       document.body.classList.remove('rumble');
-      document.body.style.overflow = ''; // Reset overflow to default
+      document.body.style.overflow = '';
     }
   }, [rumble]);
 
@@ -74,25 +65,24 @@ const Timeline = () => {
 
           {/* Timeline Segments */}
           <div className="flex justify-between items-center relative w-full">
-            {events &&
-              events.map((event, index) => (
-                <div key={index} className="flex flex-col items-center relative mx-20">
+            {years &&
+              years.map((yearData, index) => (
+                <div key={yearData.year_id} className="flex flex-col items-center relative mx-20">
                   {/* Year Marker Line */}
                   <div
                     className={`absolute w-[2px] h-4 bg-white ${
                       index % 2 === 0 ? 'bottom-0 translate-y-4' : 'top-0 -translate-y-4'
                     }`}
                   />
-
                   {/* Year Label with Clickable Button */}
-                  <button
-                    onClick={() => handleYearClick(event.year)}
+                  <a
                     className={`text-center absolute ${
                       index % 2 === 0 ? 'top-6' : 'bottom-6'
                     } text-white`}
-                  >
-                    {event.year}
-                  </button>
+
+                   href={'/event?year=' + yearData.event_year}>
+                    {yearData.event_year}
+                  </a>
                 </div>
               ))}
           </div>
