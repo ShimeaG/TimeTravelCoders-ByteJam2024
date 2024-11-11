@@ -37,17 +37,37 @@ const Timeline = () => {
 
   return (
     <>
-      {/* Background Image with Transition */}
-      {/* Welcome Section */}
-      <div
-        id="welcome"
-        className={`transition-opacity duration-1000 ${fadeOutWelcome ? 'opacity-0' : 'opacity-100'}`}
-      >
-        {/* Your welcome content goes here */}
-      </div>
+        <div className={'fixed top-3 left-3 flex items-center'}>
+            <a href={'/'} className="flex items-center hover:underline">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                >
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15 19l-7-7 7-7"
+                    />
+                </svg>
+                Back to Present
+            </a>
+        </div>
+        {/* Background Image with Transition */}
+        {/* Welcome Section */}
+        <div
+            id="welcome"
+            className={`transition-opacity duration-1000 ${fadeOutWelcome ? 'opacity-0' : 'opacity-100'}`}
+        >
+            {/* Your welcome content goes here */}
+        </div>
 
-      {/* Timeline Navigation */}
-      <nav className="shadow-inner shadow-gray-600 fixed bottom-2 left-1/2 transform -translate-x-1/2 w-full max-w-screen-lg mx-auto bg-glass backdrop-blur-md border-b border-gray-200 rounded-full py-12 px-8 overflow-hidden z-10">
+        {/* Timeline Navigation */}
+        <nav
+            className="shadow-inner shadow-gray-600 fixed bottom-2 left-1/2 transform -translate-x-1/2 w-full max-w-screen-lg mx-auto bg-glass backdrop-blur-md border-b border-gray-200 rounded-full py-12 px-8 overflow-hidden z-10">
         {/* Glass Reflection */}
         <div className="absolute top-0 mt-[0px] w-[99%] left-1/2 transform -translate-x-1/2 h-1/4 bg-glassReflection opacity-20 rounded-2xl z-15 rounded-b-xl" />
 

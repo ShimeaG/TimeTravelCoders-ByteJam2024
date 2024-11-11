@@ -3,10 +3,8 @@ import AdminEventForm from "@/app/admin/EventForm.js";
 
 export default function Home() {
   return (
-    <div>
-      <h1>Time Travel Event Form</h1>
+    <div className={'pb-32 flex flex-col space-y-2 w-full'}>
       <AdminYearForm/>
-      <h1>Time Travel Year Form</h1>
       <AdminEventForm/>
     </div>
   );

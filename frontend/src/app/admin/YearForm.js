@@ -1,8 +1,7 @@
-'use client'
+'use client';
 import { useState } from 'react';
 
 const AdminYearForm = () => {
-  const [yearId, setYearId] = useState('');
   const [eventYear, setEventYear] = useState('');
   const [message, setMessage] = useState('');
 
@@ -10,12 +9,12 @@ const AdminYearForm = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch('/api/submit', {
+      const response = await fetch('http://localhost:5000/yearSubmit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ yearId, eventYear }),
+        body: JSON.stringify({ eventYear }),
       });
 
       if (!response.ok) {
@@ -23,8 +22,7 @@ const AdminYearForm = () => {
       }
 
       const data = await response.json();
-      setYearId(data.yearId);
-      setEventYear(data.eventYear);
+      setEventYear('');
       setMessage('Form submitted successfully');
     } catch (error) {
       setMessage('Error submitting form');
@@ -32,48 +30,26 @@ const AdminYearForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-4 rounded-2xl bg-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl p-6">
+    <form onSubmit={handleSubmit} className="w-1/2 mx-auto my-3 p-6 bg-glass backdrop-blur-lg border-b-2 border-gray-50 shadow-inner shadow-gray-50 rounded-lg">
+      <h2 className="text-2xl font-bold mb-6 text-center text-gray-50">Add Event Year</h2>
       <div className="mb-4">
-        <label htmlFor="yearId" className="block text-gray-800 font-bold mb-2">
-          Year Id:
-        </label>
-        <input
-          type="number"
-          id="yearId"
-          value={yearId}
-          onChange={(e) => setYearId(e.target.value)}
-          required
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="eventYear" className="block text-gray-800 font-bold mb-2">
-          Event Year:
-        </label>
+        <label htmlFor="eventYear" className="block text-gray-50 font-medium mb-2">Event Year:</label>
         <input
           type="number"
           id="eventYear"
           value={eventYear}
           onChange={(e) => setEventYear(e.target.value)}
           required
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 text-gray-900"
         />
       </div>
       <button
         type="submit"
-        className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        className="w-full bg-blue-600 text-white py-2 rounded-md font-medium hover:bg-blue-700 transition duration-200"
       >
         Submit
       </button>
-      {message && (
-        <p
-          className={`mt-4 text-sm ${
-            message.includes('Error') ? 'text-red-500' : 'text-green-500'
-          }`}
-        >
-          {message}
-        </p>
-      )}
+      {message && <p className={`text-center mt-4 ${message.includes('successfully') ? 'text-green-500' : 'text-red-500'}`}>{message}</p>}
     </form>
   );
 };

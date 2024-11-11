@@ -15,8 +15,8 @@ Base = declarative_base()
 class Years(Base):
     __tablename__ = 'years'
 
-    year_id = Column(Integer, primary_key=True, default=0)
-    event_year = Column(Integer, default=2024)
+    year_id = Column(Integer, primary_key=True, autoincrement=True)
+    event_year = Column(Integer)
 
     # Relationship with Events model
     events = relationship('Events', back_populates='year')
@@ -26,8 +26,8 @@ class Years(Base):
 class Events(Base):
     __tablename__ = 'events'
 
-    event_id = Column(Integer, primary_key=True, default=0)
-    year_id = Column(Integer, ForeignKey('years.year_id'), default=0)
+    event_id = Column(Integer, primary_key=True, autoincrement=True)
+    year_id = Column(Integer, ForeignKey('years.year_id'))
     event_title = Column(Text, default="New Historical Event", nullable=False)
     event_desc = Column(Text, default="New event in history", nullable=False)
     event_image_url = Column(String(30), nullable=False)

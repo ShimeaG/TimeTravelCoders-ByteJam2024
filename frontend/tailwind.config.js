@@ -15,9 +15,9 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        glass: "rgba(212, 223, 255, .05)",
-        glassReflection: "rgba(212, 223, 255, .70)",
-        bgBlurColor: "rgba(224, 224, 224, .3)"
+        glass: "rgba(0, 0, 0, .50)",
+        glassReflection: "rgba(212, 223, 255, 1)",
+        bgBlurColor: "rgba(0, 0, 0, .7)"
       },
     },
   },
