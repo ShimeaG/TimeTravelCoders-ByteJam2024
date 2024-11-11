@@ -38,13 +38,6 @@ const Timeline = () => {
   return (
     <>
       {/* Background Image with Transition */}
-      <div
-        className={`fixed inset-0 w-full h-full transition-opacity duration-500 bg-cover bg-center bg-no-repeat ${
-          year ? 'opacity-50' : 'opacity-0'
-        }`}
-        style={{ backgroundImage: "url('/api/placeholder/1920/1080')" }}
-      />
-
       {/* Welcome Section */}
       <div
         id="welcome"
