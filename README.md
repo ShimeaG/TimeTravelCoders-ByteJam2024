@@ -24,20 +24,20 @@ Kyle (Marcie) Benacka
 ---
 
 ## Tools Used
-- Django
 - React
+- Flask
+- SQL Alchemy
 - PyCharm
 - Canva
+- Rest API
 - Next.js
 - Markdown
 - GitHub
-
-## Why We Used Django
-We used Django as a rest API to manage our database
+- Microsoft Teams
 
 ## Why We Used Next.js
 We're using Next.js to do the frontend development, and are making HTTP
-calls to the Django backend
+calls to Flask
 ---
 
 ## Tasks
@@ -45,4 +45,8 @@ calls to the Django backend
 - [x] Get Historical Facts
 - [x] Database Wireframe
 - [x] Project Name
+- [x] Complete Frontend
+- [x] Complete Backend
+- [x] Design the Trifold
+- [x] ReadMe
 
