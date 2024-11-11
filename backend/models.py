@@ -30,7 +30,7 @@ class Events(Base):
     event_id = Column(Integer, primary_key=True, default=0)
     year_id = Column(Integer, ForeignKey('years.year_id'), default=0)
     event_title = Column(Text, default="New Historical Event", nullable=False)
-    event_desc = Column(Text, default="New event in history", nullable=False)
+    event_desc = Column(Text, default="A new event in history", nullable=False)
     event_image_url = Column(String(30), nullable=False)
 
     # Relationship with the Years model
