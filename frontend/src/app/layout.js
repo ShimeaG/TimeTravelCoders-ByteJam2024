@@ -27,13 +27,8 @@ export default function RootLayout({ children }) {
       >
           <div className={'backdrop-blur-sm min-h-screen w-full'}>
               {children}
-              <div className={'w-full flex items-center justify-center'}>
-                  <div>
-
-                  </div>
-                <Timeline />
-              </div>
           </div>
+      <Timeline />
       </body>
     </html>
   );

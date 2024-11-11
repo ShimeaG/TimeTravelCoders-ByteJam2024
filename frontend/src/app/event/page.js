@@ -28,7 +28,7 @@ export default function Event() {
 
   return (
     <>
-      <div className={"flex items-center justify-center h-screen w-full flex-col flex-wrap"}>
+      <div className={"pb-32 flex items-center justify-center pt-2 min-h-screen w-full flex-col flex-wrap"}>
         {/* Map over the events array to render each Card with dynamic data */}
         {events.length > 0 ? (
           events.map((event) => (
@@ -36,13 +36,15 @@ export default function Event() {
               <Card
                 name={event.event_name}
                 desc={event.event_desc}
-                date={event.event_date}
                 img={event.event_img}
               />
             </div>
           ))
         ) : (
-          <p>No events found for this year.</p>
+            <div className={'text-center'}>
+              <p>No events found for this year</p>
+              <a className={'hover:underline'} href={'/admin'}>{'Add your own \u2192'}</a>
+            </div>
         )}
       </div>
     </>
